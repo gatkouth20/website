@@ -1,0 +1,5 @@
+<?php
+$handle =mysql_connect('localhost','root','');
+$db = mysql_select_db('comment',$handle);
+?><b></b>:<br/><br/><b></b>:<br/><br/><b></b>:<br/><br/><b>nyuel</b>:<br/><br/><b>paah</b>:<br/><br/><b></b>:<br/>there<br/><b>Gadong</b>:<br/>Hi there ! how are you doing?<br/><b>Gadong</b>:<br/>Hi there ! how are you doing?<br/><b>Gatkouth Tut</b>:<br/>Hi Guys! am here to inform you that 2morrow is my graduation day all are invited to attend this beautiful day with me 
+Come one Come more.<br/><b></b>:<br/><br/><b></b>:<br/><br/><b></b>:<br/><br/><b>Gatkouth Tut</b>:<br/><br/><b>Gadong</b>:<br/>hello guys! today i am gonna show you how i compose this comment box with php behind it<br/><b>Gadong</b>:<br/>hello guys! today i am gonna show you how i compose this comment box with php behind it<br/><b>Dave</b>:<br/><br/><b>Dave</b>:<br/><br/><b>Dave</b>:<br/><br/><b>Neeeeen</b>:<br/>I like this video<br/><b>Chabet</b>:<br/>I actual like this vidoe<br/><b>Chabet</b>:<br/>I actual like this vidoe<br/><b>ok</b>:<br/>hiiiiiiii<br/>
