@@ -6,50 +6,67 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css" type="text/css"/>
 <meta name="viewpoint" content="width=devic-width, intial-scale=1.0"/>
-<img src="img/01.jpg" class="logo"/></img>
-
+ 
+<style>
+body {
+        padding-bottom: 40px;
+        background-color: #f7f7f7;
+      }
+input[type=text]{
+padding:5px;
+font-weight:bold;
+ 
+}
+ input[type=password]{
+padding:5px;
+font-weight:bold;
+ 
+}
+button[type=submit]{
+padding:5px;
+font-weight:bold;
+font-size:18px;
+color:black;
+border-radiu:5px;
+background-color:cadetgreen;
+ 
+}
+ 
+</style>
 </head>
 <body class="body">
-<header class="mainHeader">
  
-<nav><ul>
-
-<li><a href="index.php" class="active">Home</a></li>
-<li><a href="#">Web Designs</a></li>
-<li><a href="#">Totorials</a></li>
-<li><a href="about.php">About Me</a></li>
-<li><a href="signup.php">Sign Up</a></li>
-<li><a href="#">sign In</a></li>
-</ul>
-<form action="search.php" method="post"/><input type="text" class="Search"size="30"placeholder="Search info......."/></form>
-</nav>
-</header>
 <div class="mainContent">
 <div class="content">
 <article class="topcontent">
 <header>
-<h2><a href="#" title="first post">Register Now to complete the process</a></h2></header>
-The filing process a company performs, in accordance with SEC regulations, prior to offering a new issue to the public. This process enables the SEC to confirm that the issue meets all the regulatory requirements.
-
+<h2>Register Now to complete the process</h2>
+</header>
  <form action="" method="POST"/>
+
  <table>
  <tr>
- <td>Username:</td>
- <td><input type="text" name="" value=""></td>
+ 
+ <td><input type="text" name="username" size="40"value="" placeholder="Enter Your Username"></td>
  </tr>
  <tr>
- <td>Country:</td>
- <td><input type="text" name="country" value=""></td>
+ <td><input type="text" name="country" size="40" value="" placeholder="Enter Your Country"></td>
  </tr>
  <tr>
- <td>E-mail:</td>
- <td><input type="text" name="" value=""></td>
+ <td><input type="text" name=""size="40" value="" placeholder="enter your Email address"></td>
  </tr>
  <tr>
- <td>Password:</td>
- <td><input type="password" name="password" value=""></td>
+ 
+ <td><input type="password" name="password" size="40"value="" placeholder="Enter Your Password"></td>
  </tr>
- <td><input type="submit" name="submit"value="Register"/></td>
+ <td><div class="clearfix"></div><hr />
+            <div class="form-group">
+            	<button type="submit"class="btn btn-block btn-primary" name="btn-signup">
+                	 SIGN UP
+                </button>
+            </div>
+            <br />
+            <label>have an account ! <a href="index.php">Sign In</a></label></td>
  </table>
  </form>
  </article>
@@ -75,11 +92,9 @@ Our fully managed registration service ensures that you never have to deal with 
 <div class="Middle-sidebar"><h2>Today post</h2>
 <ul>
  
- <marquee direction="up"><li><div><a href="#"><img src="img/01.jpg"/></div><div class="show">New post you can practice and learn from it.</a></div></li>
+<li><div><a href="#"><img src="img/01.jpg"/></div><div class="show">New post you can practice and learn from it.</a></div></li>
  <li><div><a href="#"><img src="img/02.png"/></div><div class="show">New post you can practice and learn from it</a></div></li>
-  <li><div><a href="#"><img src="img/logo.png"/></div><div class="show">New post you can practice and learn from it</a></div></li>
- 
-   </marquee>
+ <li><div><a href="#"><img src="img/02.png"/></div><div class="show">Latest Post</a></div></li>
   
  </ul>
 </div>
@@ -95,4 +110,4 @@ Our fully managed registration service ensures that you never have to deal with 
 
 </footer>
 </body
-</html>
+></html>

@@ -1,87 +1,122 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<?php
+$nyuel = mysql_connect('localhost','root','');
+if (!$nyuel){
+	    die("Database Connection Failed" . mysql_error());
+}
+$select_db = mysql_select_db('website',$nyuel);
+if (!$select_db){
+	    die("Database Selection Failed" . mysql_error());
+}
+if(isset($_POST['submit'])){
+$username=$_POST['username'];
+$password=$_POST['password'];
+$level=$_POST['level'];
+switch($level){
+case'admin':
+$nyuel=mysql_query("SELECT *FROM admin WHERE username='$username' AND password='$password'");
+$row=mysql_fetch_array($nyuel);
+if($row>1){
+session_start();
+$_SESSION['admin_id']=$row[0];
+$_SESSION['username']=$row[1];
+header("location:all_page.php");
+}else{
+ echo "Username and password incorrect";
+}
+break;
+case'user':
+$nyuel=mysql_query("SELECT *FROM login WHERE username='$username' AND password=md5('$password')");
+$row=mysql_fetch_array($nyuel);
+if($row>1){
+session_start();
+$_SESSION['User_ID']=$row[0];
+$_SESSION['username']=$row[1];
+ header("location:Totorials.php");
+}else{
+ echo "Username & Password incorrect";
+}
+}
+}?>
+<html>
 <head>
-<title> My Responsive website</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="style.css" type="text/css"/>
-<meta name="viewpoint" content="width=devic-width, intial-scale=1.0"/>
-<img src="img/01.jpg" class="logo"/></img>
-
+<title>Beautiful login form</title>
+<style>
+body{
+	margin-top:80px;
+	background-color: #666666;
+}
+h2
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#00a2d1;
+}
+.main{
+	width:500px;
+	margin:0 auto;
+	background:#ccc;
+	padding: 25px;
+	border-radius:5px;
+	box-shadow: 0px 0px 0.4px;
+}
+input[type=text],input[type=password],input[type=Submit]{
+	padding:9px;
+	border-radius:6px;
+	color: #000000;
+	font-weight:bold;
+	
+}
+select[name=level]{
+	padding:9px;
+	border-radius:6px;
+	color: #000000;
+	font-weight:bold;
+	
+}
+.container{
+	background:#fff;
+	border-radius:5px;
+ font-size:24px;
+ text-align:center;
+}
+a{
+	 text-decoration:none
+}
+</style>
 </head>
-<body class="body">
-<header class="mainHeader">
- 
-<nav><ul>
+<body>
+<div class="main">
+<div class="container">
+<h2>Control panel</h2><hr />
+            <?php
+			if(isset($error))
+			{
+					 ?>
+                     <div class="alert alert-danger">
+                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                     </div>
+                     <?php
+			}
+			?>
+ </div>
+<table>
+<form action="" method="POST"/>
+<tr>
+<td><input type="text" name="username" value=""size="40"placeholder="Enter your username" required="required"/></td>
+</tr>
+<tr>
+<td><input type="password" name="password" size="40"value="" placeholder="enter your password" required="required"/></td>
+</tr>
 
-<li><a href="#" class="active">Home</a></li>
-<li><a href="#">Web Designs</a></li>
-<li><a href="#">Totorials</a></li>
-<li><a href="about.php">About Me</a></li>
-<li><a href="signup.php">Sign Up</a></li>
-<li><a href="login.php">sign In</a></li>
-</ul>
-<form action="search.php" method="post"/><input type="text" class="Search"size="30"placeholder="Search info......."/></form>
-</nav>
-</header>
-<div class="mainContent">
-<div class="content">
-<article class="topcontent">
-<header>
-<h2><a href="#" title="first post">My first video Totorials</a></h2></header>
-<footer>
-<p class="post_info">This Video was posted by gatkouth Nyuel on 3/2/2015</p></footer>
+<tr>
+<td><input type="Submit" name="submit"value="Login"><a href="signup.php">Not yet registered Sign up Now</td>
+</tr>
+<p><select name="level"/>
+		<option>--level--</option>
+			<option>admin</option>
+			<option>user</option>
+			</select></p>
+</form>
+</table>
  
- <video width="320" height="240" controls>
-  <source src="MOV_0123" type="video/mp4">
-  <source src="MOV_0123" type="MOV_0123">
-Your browser does not support the video tag.
-</video>
-<br>
-Please dont hestate to comment below!
- 
-<article class="bottomcontent">
- <form action="" method="post">
-
-Name:<br>
-<input type="text" name="name" value="" placeholder="write your name"><br />
- <br>
-<textarea rows = "8" cols="40" name="Comment" placeholder="what's on your mind" ></textarea><br/>
-<input type="submit" name="submit" value="Subscript!" />
- 
-</article>
-</div>
-</div>
-<aside>
- 
-<div class="Top-sidebar"> 
-<h2>Latest News feed</h2>
-<p>
-Nervous System: Facts, Function & Diseases
- The nervous system is a complex collection of nerves and specialized cells known as neurons that transmit signals between different parts of the body. 
- It is essentially the body’s electrical wiring Structurally, the nervous system has two components: </p>
-</div>
-<aside>
- <div class="Middle-sidebar"><h2>Today post</h2>
-<ul>
- 
- <marquee direction="up"><li><div><a href="#"><img src="img/01.jpg"/></div><div class="show">New post you can practice and learn from it.</a></div></li>
- <li><div><a href="#"><img src="img/02.png"/></div><div class="show">New post you can practice and learn from it</a></div></li>  
- <li><div><a href="#"><img src="img/image.png"/></div><div class="show">To nite10ment concert flavour ft Chidnam</a></div></li>  
- </marquee>
- </ul>
-</div> 
-</aside> 
-<div class="socialmedia">Follows Us on:
-<a href="[https://github.com/gatkouth20/my-project]"><img title="Github" alt="Github" src="https://socialmediawidgets.files"></a>|
-<a href="[https://www.facebook.com/?ref=tn_tnmn]"><img title="facebook" alt="Facebook" src="https://socialmediawidgets.files"></a>
-<a href="[https://www.facebook.com/?ref=tn_tnmn]"><img title="Twiiter" alt="Twitter" src="https://socialmediawidgets.files"></a>
-
-
-</div>
-<footer class="mainFooter">
-<p>Copyright&copy:<a href="#" title="WebDesign.com">this is my second web Design</a></p>
-
-</footer>
-</body
+</body>
 </html>
